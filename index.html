@@ -617,8 +617,9 @@ async function loadNews(category){
   }
 
   try {
-    const url = `${NEWS_API_BASE}?apikey=${NEWS_API_KEY}&language=ro&category=${category}`;
-    const res = await fetch(url);
+let url = `${NEWS_API_BASE}?apikey=${NEWS_API_KEY}&language=ro`;
+    if(category && category !== 'general'){
+const res = await fetch(url);    }    const res = await fetch(url);
     if(!res.ok) throw new Error('API indisponibil');
     const data = await res.json();
 
